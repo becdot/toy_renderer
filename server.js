@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const upload = require('multer')();
 
+const TextRenderer = require('./text_renderer');
+
 const PORT = process.env.PORT || 3000;
 const NAME = 'Toy Renderer';
 
@@ -27,7 +29,8 @@ router.get('/status', (req, res) => {
 
 router.post('/image', upload.array(), (req, res) => {
   console.log('req', req.body);
-  res.json(req.body);
+  const renderer = new TextRenderer({ text: req.body.text });
+  res.json(renderer.toString());
 });
 
 app.use('/', router);
