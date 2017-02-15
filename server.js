@@ -11,7 +11,7 @@ const app = express();
 const router = express.Router();
 
 const loggingMiddleware = (req, res, next) => {
-  console.log(`received req at ${req.method} ${req.path}`);
+  console.log(`received request at ${req.method} ${req.path}`);
   next();
 };
 
@@ -28,7 +28,6 @@ router.get('/status', (req, res) => {
 });
 
 router.post('/image', upload.array(), (req, res) => {
-  console.log('req', req.body);
   const renderer = new TextRenderer({ text: req.body.text });
   res.json(renderer.toString());
 });
@@ -38,3 +37,5 @@ app.use('/', router);
 app.listen(PORT, () => {
   console.log(`${NAME} listening on port ${PORT}!`);
 });
+
+module.exports = app;
