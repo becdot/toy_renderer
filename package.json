@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test mocha test/**/*.js",
-    "test-functional": "NODE_ENV=test mocha 'test/functional/js'",
-    "test-unit": "NODE_ENV=test mocha 'test/unit/*.js'"
+    "test-functional": "NODE_ENV=test mocha --spec 'test/functional/*.js'",
+    "test-unit": "NODE_ENV=test mocha --spec 'test/unit/*.js'"
   },
   "engines": {
     "node": "6.9.5"

@@ -7,6 +7,7 @@ module.exports = {
         "import"
     ],
     "rules": {
+      "comma-dangle": 0,
       "strict": 0
     }
 };
