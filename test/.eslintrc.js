@@ -5,6 +5,7 @@ module.exports = {
       "before": false,
       "describe": false,
       "http": false,
+      "Image": false,
       "it": false,
     },
     "parserOptions": {

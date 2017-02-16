@@ -4,7 +4,7 @@ const request = require('request');
 process.env.NODE_ENV = 'test';
 process.env.PORT = 9999;
 
-const app = require('../../server');
+const app = require('../../app/server');
 
 const URL = `http://localhost:${process.env.PORT}`;
 
@@ -20,10 +20,6 @@ describe('Server', function() {
 
     it('should succeed', function() {
       assert.equal(200, this.request.response.statusCode);
-    });
-
-    it('should return the name of the app', function() {
-      assert.equal('Toy Renderer', this.request.response.body);
     });
   });
 
@@ -42,10 +38,10 @@ describe('Server', function() {
     });
   });
 
-  describe('POST /image', function() {
+  describe('GET /image', function() {
     before(function(done) {
       const body = { text: 'hello world!' };
-      this.request = request.post({ url: `${URL}/image`, form: body }, done);
+      this.request = request.get({ url: `${URL}/image`, form: body }, done);
     });
 
     it('should succeed', function() {
